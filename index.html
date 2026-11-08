@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For My Tanu 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #c0485a;
+    --rose-light: #f7e0e4;
+    --rose-pale: #fdf3f5;
+    --gold: #c9a84c;
+    --gold-light: #f5ead0;
+    --cream: #fefaf6;
+    --text-dark: #3a1a20;
+    --text-mid: #7a4a55;
+    --text-soft: #b07080;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── Petals ── */
+  .petals-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    top: -60px;
+    font-size: 18px;
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(160deg, #fff0f3 0%, #fdf3f5 50%, #fef9f0 100%);
+    z-index: 1;
+  }
+
+  .hero-ornament {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  .hero-label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 600;
+    color: var(--rose);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    color: var(--text-mid);
+    margin-bottom: 2.5rem;
+  }
+
+  .scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-soft);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+  .scroll-hint svg { width: 20px; opacity: 0.5; }
+
+  /* ── Divider ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2.5rem 1.5rem 0;
+  }
+  .divider-line {
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .divider-line.right { background: linear-gradient(to left, transparent, var(--gold)); }
+  .divider-icon { color: var(--gold); font-size: 1.1rem; }
+
+  /* ── Sections ── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 1.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    font-weight: 600;
+    color: var(--rose);
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  /* ── Letter card ── */
+  .letter-card {
+    background: #fff;
+    border: 1px solid #f0d8dd;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 32px rgba(192, 72, 90, 0.07);
+    position: relative;
+    overflow: hidden;
+  }
+  .letter-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--rose-light);
+    position: absolute;
+    top: -1rem;
+    left: 0.5rem;
+    line-height: 1;
+  }
+
+  .letter-p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    line-height: 1.9;
+    color: var(--text-dark);
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .letter-p.italic { font-style: italic; color: var(--text-mid); }
+
+  .letter-sign {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--rose);
+    text-align: right;
+    margin-top: 1.5rem;
+  }
+
+  /* ── Reasons ── */
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .reason-card {
+    background: #fff;
+    border: 1px solid #f0d8dd;
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+  }
+  .reason-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .reason-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ── Birthday note ── */
+  .birthday-band {
+    background: linear-gradient(135deg, #fdf0f2 0%, #fef9f0 100%);
+    border: 1px solid #f0d8c0;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .birthday-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .birthday-msg {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  /* ── Proposal ── */
+  .proposal-section {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  .ring-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: glow 2.5s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 0px #c9a84c); }
+    50% { filter: drop-shadow(0 0 12px #c9a84c88); }
+  }
+
+  .proposal-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+  .proposal-text span { color: var(--rose); font-style: italic; }
+
+  .answer-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-yes {
+    background: var(--rose);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(192,72,90,0.3);
+  }
+  .btn-yes:hover { transform: scale(1.05); box-shadow: 0 6px 28px rgba(192,72,90,0.4); }
+
+  .btn-no {
+    background: transparent;
+    color: var(--text-soft);
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  /* ── Yes screen ── */
+  #yes-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #fff0f3, #fef9f0);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  #yes-screen.show { display: flex; }
+  .yes-emoji { font-size: 4rem; margin-bottom: 1rem; animation: spin 1s ease; }
+  @keyframes spin { from { transform: rotate(-20deg) scale(0); } to { transform: rotate(0) scale(1); } }
+  .yes-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 8vw, 3rem);
+    color: var(--rose);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  .yes-msg {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    color: var(--text-mid);
+    max-width: 400px;
+    line-height: 1.7;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    color: var(--text-soft);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* ── Confetti ── */
+  .confetti-piece {
+    position: fixed;
+    width: 10px; height: 10px;
+    top: -20px;
+    border-radius: 2px;
+    animation: confetti-fall 3s ease-in forwards;
+    z-index: 200;
+    pointer-events: none;
+  }
+  @keyframes confetti-fall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Falling petals -->
+<div class="petals-bg" id="petals"></div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-ornament">🌹</div>
+  <p class="hero-label">A message from the heart</p>
+  <h1 class="hero-title">My Tanu</h1>
+  <p class="hero-subtitle">There is something I have been wanting to say…</p>
+  <div class="scroll-hint">
+    <span>Scroll down</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</div>
+
+<!-- Love letter -->
+<section>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">✦</div>
+    <div class="divider-line right"></div>
+  </div>
+
+  <p class="section-label" style="margin-top:2rem">A letter for you</p>
+  <h2 class="section-title">My Dearest Tanishka</h2>
+
+  <div class="letter-card">
+    <p class="letter-p">
+      My dearest Tanu, I have been trying to find the perfect words for so long — 
+      words that could carry the weight of everything I feel for you. 
+      But I have come to realise that no words will ever be enough.
+    </p>
+    <p class="letter-p">
+      You came into my life and quietly rearranged everything. 
+      You are the reason my mornings feel warmer, my evenings feel softer, 
+      and my heart feels like it has finally found where it belongs.
+    </p>
+    <p class="letter-p italic">
+      Your laugh is my favourite sound in the world. 
+      The way you care for the people around you takes my breath away. 
+      Your strength, your kindness, your beautiful spirit — 
+      Tanu, you are everything.
+    </p>
+    <p class="letter-p">
+      Every moment with you feels like a gift I never want to stop unwrapping. 
+      And as your birthday on <strong style="color:var(--rose)">18th May</strong> approaches, 
+      I want to give you something that comes straight from my soul —
+      my promise to love you, protect you, and stand beside you 
+      through every chapter of this beautiful life.
+    </p>
+    <div class="letter-sign">
+      Forever yours, Sahul 🌹
+    </div>
+  </div>
+</section>
+
+<!-- Reasons I love you -->
+<section>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">✦</div>
+    <div class="divider-line right"></div>
+  </div>
+
+  <p class="section-label" style="margin-top:2rem">Why I love you</p>
+  <h2 class="section-title">What Makes You, You</h2>
+
+  <div class="reasons-grid">
+    <div class="reason-card">
+      <div class="reason-icon">🌸</div>
+      <p class="reason-text">Your kindness that touches everyone around you</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">✨</div>
+      <p class="reason-text">The way your eyes light up when you are happy</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">💪</div>
+      <p class="reason-text">Your quiet strength that inspires me every single day</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">😄</div>
+      <p class="reason-text">Your laugh — the most beautiful sound I know</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🌙</div>
+      <p class="reason-text">How you make ordinary moments feel magical</p>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🫂</div>
+      <p class="reason-text">The warmth and love you bring into my world</p>
+    </div>
+  </div>
+</section>
+
+<!-- Birthday note -->
+<section>
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">✦</div>
+    <div class="divider-line right"></div>
+  </div>
+
+  <div style="margin-top:2rem" class="birthday-band">
+    <p class="birthday-date">✦ 18th May ✦</p>
+    <p class="birthday-msg">
+      On the day the world was blessed with you,<br>
+      I promise to make every birthday more beautiful<br>
+      than the last — because you deserve the whole universe, Tanu.
+    </p>
+    <p style="margin-top:1rem; font-size:1.8rem">🎂🌹🎁</p>
+  </div>
+</section>
+
+<!-- The Proposal -->
+<section class="proposal-section">
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">✦</div>
+    <div class="divider-line right"></div>
+  </div>
+
+  <p class="section-label" style="margin-top:2rem; margin-bottom:1.5rem">The question</p>
+
+  <span class="ring-icon">💍</span>
+
+  <p class="proposal-text">
+    Tanishka, will you make me the<br>
+    <span>happiest person in the world</span><br>
+    and be mine, forever?
+  </p>
+
+  <div class="answer-btns">
+    <button class="btn-yes" onclick="sayYes()">Yes, with all my heart 💕</button>
+    <button class="btn-no" id="noBtn" onmouseover="runAway(this)" ontouchstart="runAway(this)">Maybe not…</button>
+  </div>
+</section>
+
+<div class="footer">
+  Made with love · Sahul for Tanu · Always &amp; Forever 🌹
+</div>
+
+<!-- Yes screen -->
+<div id="yes-screen">
+  <div class="yes-emoji">💍</div>
+  <h2 class="yes-title">She said Yes! 🎉</h2>
+  <p class="yes-msg">
+    Tanu, you just made me the happiest person alive.<br><br>
+    I promise to love you more and more with every single day.<br>
+    You are my today, tomorrow, and always. 🌹
+  </p>
+  <p style="margin-top:2rem; font-size:2rem">🥂💕🌸</p>
+</div>
+
+<script>
+  // Petals
+  const petalEl = document.getElementById('petals');
+  const symbols = ['🌸','🌺','🌹','✿','❀'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = symbols[i % symbols.length];
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (8 + Math.random() * 10) + 's';
+    p.style.animationDelay = (Math.random() * 12) + 's';
+    p.style.fontSize = (12 + Math.random() * 14) + 'px';
+    petalEl.appendChild(p);
+  }
+
+  // No button runs away
+  function runAway(btn) {
+    const vw = window.innerWidth - 120;
+    const vh = window.innerHeight - 60;
+    btn.style.position = 'fixed';
+    btn.style.transition = 'all 0.3s ease';
+    btn.style.left = Math.random() * vw + 'px';
+    btn.style.top  = Math.random() * vh + 'px';
+    btn.style.zIndex = '50';
+  }
+
+  // Yes!
+  function sayYes() {
+    launchConfetti();
+    setTimeout(() => {
+      document.getElementById('yes-screen').classList.add('show');
+    }, 400);
+  }
+
+  function launchConfetti() {
+    const colors = ['#c0485a','#c9a84c','#f7a8b8','#ffffff','#f5ead0'];
+    for (let i = 0; i < 80; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti-piece';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (6 + Math.random() * 8) + 'px';
+      c.style.height = (6 + Math.random() * 8) + 'px';
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      c.style.animationDelay = (Math.random() * 1.5) + 's';
+      c.style.animationDuration = (2 + Math.random() * 2) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 5000);
+    }
+  }
+</script>
+</body>
+</html>
